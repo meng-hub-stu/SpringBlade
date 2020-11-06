@@ -1,9 +1,9 @@
  <p align="center">
-      <img src="https://img.shields.io/badge/Release-V2.7.3-green.svg" alt="Downloads">
+      <img src="https://img.shields.io/badge/Release-V2.8.0-green.svg" alt="Downloads">
       <img src="https://img.shields.io/badge/JDK-1.8+-green.svg" alt="Build Status">
   <img src="https://img.shields.io/badge/license-Apache%202-blue.svg" alt="Build Status">
    <img src="https://img.shields.io/badge/Spring%20Cloud-Hoxton.SR8-blue.svg" alt="Coverage Status">
-   <img src="https://img.shields.io/badge/Spring%20Boot-2.2.9.RELEASE-blue.svg" alt="Downloads">
+   <img src="https://img.shields.io/badge/Spring%20Boot-2.2.11.RELEASE-blue.svg" alt="Downloads">
    <a target="_blank" href="https://bladex.vip">
    <img src="https://img.shields.io/badge/Author-Small%20Chill-ff69b4.svg" alt="Downloads">
  </a>
@@ -14,7 +14,7 @@
 
 ## 2020年度最受欢迎中国开源软件评选
 * 请为SpringBlade投上一票，非常感谢～
-* 投票地址：[https://www.oschina.net/project/top_cn_2020?fr=news-1023](https://www.oschina.net/project/top_cn_2020?fr=news-1023)
+* 投票地址：[https://www.oschina.net/project/top_cn_2020](https://www.oschina.net/project/top_cn_2020)
 * 投票赢三份基础技术文档限时活动：[https://sns.bladex.vip/note/view/4.html](https://sns.bladex.vip/note/view/4.html)
 
 ## SpringBlade微服务开发平台
