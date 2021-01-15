@@ -18,6 +18,7 @@
         <module>blade-resource</module>
         <module>blade-seata-order</module>
         <module>blade-seata-storage</module>
+        <module>blade-swagger</module>
     </modules>
 
 </project>
