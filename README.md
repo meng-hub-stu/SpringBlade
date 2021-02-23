@@ -28,6 +28,9 @@
 ## 架构图
 <img src="https://gitee.com/smallc/SpringBlade/raw/master/pic/springblade-framework.png"/>
 
+## 趋势图
+<a href="https://whnb.wang/smallc/SpringBlade" rel="nofollow"><img src="https://whnb.wang/img/smallc/SpringBlade" alt="Stargazers over time"></a>
+
 ## 工程结构
 ``` 
 SpringBlade
