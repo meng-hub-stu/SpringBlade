@@ -17,6 +17,9 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
+CREATE SCHEMA IF NOT EXISTS `blade` DEFAULT CHARACTER SET utf8mb4 ;
+USE `blade` ;
+
 -- ----------------------------
 -- Table structure for blade_client
 -- ----------------------------
