@@ -30,6 +30,12 @@
             <artifactId>blade-core-transaction</artifactId>
             <version>${blade.tool.version}</version>
         </dependency>
+        <!--缺失bug        -->
+        <dependency>
+            <groupId>org.springblade</groupId>
+            <artifactId>blade-core-launch</artifactId>
+            <version>${blade.tool.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
