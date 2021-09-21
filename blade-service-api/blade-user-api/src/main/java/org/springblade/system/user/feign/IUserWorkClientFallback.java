@@ -1,5 +1,7 @@
 package org.springblade.system.user.feign;
 
+import org.springblade.core.tool.api.R;
+import org.springblade.system.user.dto.LoginUserInfoDTO;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,7 +12,12 @@ import org.springframework.stereotype.Component;
 public class IUserWorkClientFallback implements IUserWorkClient{
 
 	@Override
-	public void syncWechatUserInfo(String openid, String accessToken) {
+	public R<Boolean> syncWechatUserInfo(String openid, String accessToken) {
+		return R.fail("同步微信用户信息失败");
+	}
 
+	@Override
+	public R<LoginUserInfoDTO> queryBindUserInfoByOpenId(String openId) {
+		return R.fail("获取微信绑定信息失败");
 	}
 }

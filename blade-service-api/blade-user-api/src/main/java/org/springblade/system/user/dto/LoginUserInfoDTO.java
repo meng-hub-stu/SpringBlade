@@ -8,6 +8,7 @@ import org.springblade.system.user.entity.UserInfoWechat;
 import org.springblade.system.user.entity.UserWork;
 
 /**
+ * 微信登录的信息
  * @author Mengdl
  * @date 2021/09/18
  */

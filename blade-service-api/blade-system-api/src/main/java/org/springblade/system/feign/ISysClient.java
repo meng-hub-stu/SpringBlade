@@ -17,11 +17,13 @@ package org.springblade.system.feign;
 
 import org.springblade.core.launch.constant.AppConstant;
 import org.springblade.core.tool.api.R;
+import org.springblade.system.dto.wechat.WechatBaseUserInfoDTO;
 import org.springblade.system.entity.Dept;
 import org.springblade.system.entity.Role;
 import org.springblade.system.entity.Tenant;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -160,5 +162,22 @@ public interface ISysClient {
 	 */
 	@GetMapping(API_PREFIX + "/tenant-id")
 	R<Tenant> getTenant(@RequestParam("tenantId") String tenantId);
+
+	/**
+	 * 获取openid
+	 * @param code 网页授权码
+	 * @return openid的值
+	 */
+	@GetMapping(API_PREFIX + "/getOpenid")
+	R<String> getOpenid(@RequestParam("code") String code);
+
+	/**
+	 * 获取用户信息
+	 * @param openid 微信的openid
+	 * @param accessToken 网页token
+	 * @return 微信用户信息
+	 */
+	@PostMapping(API_PREFIX + "/wechatUserInfo")
+	R<WechatBaseUserInfoDTO> wechatUserInfo(@RequestParam("openid") String openid, @RequestParam("accessToken") String accessToken);
 
 }

@@ -2,6 +2,7 @@ package org.springblade.auth.service.impl.login;
 
 import org.springblade.auth.annotation.Login;
 import org.springblade.auth.dto.BaseLoginDTO;
+import org.springblade.auth.dto.LoginResultDTO;
 import org.springblade.auth.dto.RefreshTokenBaseLoginDTO;
 import org.springblade.auth.enums.LoginResultEnum;
 import org.springblade.auth.enums.LoginTypeEnum;
@@ -25,6 +26,11 @@ public class RefreshTokenLoginServiceImpl implements LoginService {
 		return RefreshTokenBaseLoginDTO.builder()
 			.refreshToken(loginVO.getRefreshToken())
 			.build();
+	}
+
+	@Override
+	public LoginResultDTO login(BaseLoginDTO baseLoginDTO) {
+		return null;
 	}
 
 	@Override

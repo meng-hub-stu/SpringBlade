@@ -16,6 +16,7 @@
 package org.springblade.system.feign;
 
 import org.springblade.core.tool.api.R;
+import org.springblade.system.dto.wechat.WechatBaseUserInfoDTO;
 import org.springblade.system.entity.Dept;
 import org.springblade.system.entity.Role;
 import org.springblade.system.entity.Tenant;
@@ -94,5 +95,15 @@ public class ISysClientFallback implements ISysClient {
 	@Override
 	public R<Tenant> getTenant(String tenantId) {
 		return null;
+	}
+
+	@Override
+	public R<String> getOpenid(String code) {
+		return R.fail("获取openid失败");
+	}
+
+	@Override
+	public R<WechatBaseUserInfoDTO> wechatUserInfo(String openid, String accessToken) {
+		return R.fail("获取用户信息失败");
 	}
 }

@@ -17,13 +17,11 @@ package org.springblade.system.feign;
 
 import lombok.AllArgsConstructor;
 import org.springblade.core.tool.api.R;
+import org.springblade.system.dto.wechat.WechatBaseUserInfoDTO;
 import org.springblade.system.entity.Dept;
 import org.springblade.system.entity.Role;
 import org.springblade.system.entity.Tenant;
-import org.springblade.system.service.IDeptService;
-import org.springblade.system.service.IPostService;
-import org.springblade.system.service.IRoleService;
-import org.springblade.system.service.ITenantService;
+import org.springblade.system.service.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
@@ -47,6 +45,19 @@ public class SysClient implements ISysClient {
 	private IRoleService roleService;
 
 	private ITenantService tenantService;
+
+	private final IWechatService wechatService;
+
+	@Override
+	public R<WechatBaseUserInfoDTO> wechatUserInfo(String openid, String accessToken) {
+		return R.data(wechatService.getUserInfo(openid, accessToken));
+	}
+
+	@Override
+	@GetMapping(API_PREFIX + "/getOpenid")
+	public R<String> getOpenid(String code) {
+		return R.data(wechatService.getOpenid(code));
+	}
 
 	@Override
 	@GetMapping(API_PREFIX + "/getDept")

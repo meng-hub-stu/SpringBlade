@@ -35,10 +35,12 @@ public class WechatLoginServiceImpl implements LoginService {
 	@Override
 	public LoginResultDTO login(BaseLoginDTO baseLoginDTO) {
 		WechatBaseLoginDTO wechatBaseLogin = (WechatBaseLoginDTO)baseLoginDTO;
+		//通过code获取openid，将获取到的微信个人信息存储在库里
 		String openId = systemService.getOpenId(wechatBaseLogin.getCode());
 		if(isBlank(openId)){
 			return LoginResultDTO.failure(LoginResultEnum.GET_OPENID_FAILURE, null);
 		}
+		//查看绑定的信息
 		LoginUserInfoDTO userInfo = userWorkService.queryBindUserInfoByOpenId(openId);
 		if(jumpLoginPageCheck(userInfo)){
 

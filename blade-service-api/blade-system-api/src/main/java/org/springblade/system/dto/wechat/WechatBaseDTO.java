@@ -3,6 +3,7 @@ package org.springblade.system.dto.wechat;
 import lombok.Data;
 
 /**
+ * 微信返回码信息
  * @author Mengdl
  * @date 2021/09/18
  */

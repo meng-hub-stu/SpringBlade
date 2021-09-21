@@ -8,4 +8,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class IWechatClientFallback implements IWechatClient{
+	@Override
+	public String snsAccessToken(String appId, String appsecret, String code, String snsGrantType) {
+		return null;
+	}
 }
