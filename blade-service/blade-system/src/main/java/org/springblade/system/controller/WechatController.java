@@ -7,10 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springblade.core.tool.api.R;
 import org.springblade.system.service.IWechatService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springblade.core.tool.utils.Func.isNotBlank;
 
@@ -33,6 +30,30 @@ public class WechatController {
 	public R<String> openid(@ApiParam("网页授权码") @RequestParam("code") String code) {
 		String openid = wechatService.getOpenid(code);
 		return isNotBlank(openid) ? R.data(openid) : R.fail("获取openid失败");
+	}
+
+	@GetMapping("/mp/msg")
+	@ApiOperation(value = "校验接口配置信息")
+	public String check(String signature, String timestamp, String nonce, String echostr){
+		if(wechatService.verifyUrl(signature, timestamp, nonce)){
+			return echostr;
+		}
+		return null;
+	}
+
+	@PostMapping(value = "/mp/msg")
+	@ApiOperation(value = "校验接口配置信息")
+	public String msg(String signature, String timestamp, String nonce, String openid) {
+		if (wechatService.verifyUrl(signature, timestamp, nonce)) {
+			log.error("验签失败[openid:{}]", openid);
+		}
+		return "success";
+	}
+
+	@GetMapping(value = "/code")
+	@ApiOperation(value = "网页授权获取code码")
+	public String code(){
+		return "success";
 	}
 
 }

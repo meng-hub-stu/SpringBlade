@@ -22,4 +22,14 @@ public interface IWechatService {
 	 * @return 用户信息
 	 */
 	WechatBaseUserInfoDTO getUserInfo(String openid, String accessToken);
+
+	/**
+	 * 校验接口配置的url
+	 * @param signature 微信加密签名
+	 * @param timestamp 时间戳
+	 * @param nonce 随机数
+	 * @return
+	 */
+    boolean verifyUrl(String signature, String timestamp, String nonce);
+
 }

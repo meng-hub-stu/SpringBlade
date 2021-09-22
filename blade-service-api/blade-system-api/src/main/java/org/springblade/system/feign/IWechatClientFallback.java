@@ -12,4 +12,9 @@ public class IWechatClientFallback implements IWechatClient{
 	public String snsAccessToken(String appId, String appsecret, String code, String snsGrantType) {
 		return null;
 	}
+
+	@Override
+	public String snsUserInfo(String accessToken, String openid, String lang) {
+		return null;
+	}
 }

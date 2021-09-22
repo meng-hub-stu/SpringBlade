@@ -35,6 +35,12 @@
             <artifactId>blade-user-api</artifactId>
             <version>${blade.project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.4.1</version>
+            <scope>compile</scope>
+        </dependency>
         <!--Zipkin-->
         <!--<dependency>
             <groupId>org.springframework.cloud</groupId>

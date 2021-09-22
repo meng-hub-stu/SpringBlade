@@ -1,15 +1,21 @@
 package org.springblade.system.service.impl;
 
+import com.google.common.collect.Lists;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import cn.hutool.crypto.SecureUtil;
 import org.springblade.system.constant.WechatScopeType;
 import org.springblade.system.dto.wechat.SnsAccessTokenDTO;
 import org.springblade.system.dto.wechat.WechatBaseUserInfoDTO;
 import org.springblade.system.dto.wechat.WechatSnsUserInfoDTO;
+import org.springblade.system.props.WechatMpProperties;
 import org.springblade.system.service.IWechatRemoteService;
 import org.springblade.system.service.IWechatService;
 import org.springblade.system.user.feign.IUserWorkClient;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import static org.springblade.core.tool.utils.Func.copy;
 import static org.springblade.core.tool.utils.Func.isNotEmpty;
@@ -26,6 +32,16 @@ public class WechatServiceImpl implements IWechatService {
 	private final IWechatRemoteService wechatRemoteService;
 
 	private final IUserWorkClient userWorkClient;
+
+	private final WechatMpProperties wechatMpProperties;
+
+	@Override
+	public boolean verifyUrl(String signature, String timestamp, String nonce) {
+		ArrayList<String> str = Lists.newArrayList(timestamp, signature, nonce);
+		String signStr = str.stream().sorted().collect(Collectors.joining());
+		String sign = SecureUtil.sha1(signStr);
+		return sign.equals(signature);
+	}
 
 	@Override
 	public WechatBaseUserInfoDTO getUserInfo(String openid, String accessToken) {
