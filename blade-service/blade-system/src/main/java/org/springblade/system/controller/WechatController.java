@@ -16,7 +16,7 @@ import static org.springblade.core.tool.utils.Func.isNotBlank;
  * @author Mengdl
  * @date 2021/09/18
  */
-@Api
+@Api(value = "微信")
 @RequestMapping("/wechat")
 @AllArgsConstructor
 @RestController
